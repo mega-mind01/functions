@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function task</title>
+</head>
+<body>
+    <h1>Function Task</h1>
+
+    <script>
+        // Given an array containing 7 numbers, {7,13,15,21,30,4,95}, write a function that takes as argument an array containing this 7 numbers, and returns the even number in the array doubled as an updated array
+
+        // TASK 1
+        // let numArray = [7,13,15,21,30,4,95];
+        // doubleEven(numArray);
+        // console.log(numArray);
+
+        function doubleEven (array) {
+            for (let i = 0; i < array.length; i++) {
+                let num = array[i];
+                if (num % 2 == 0) {
+                    num = num * 2;
+                }
+                array[i] = num;
+            }
+        }
+
+        // Create a javascript function that accepts an array of strings and return a new array containing the length of each strings inthe input array
+        // TASK 2
+        // let names = ["Timothy", "Toluwalola", "Grace", "Boluwatife", "Adetunji", "Onyinye", "Samuel"];
+        // let nameslength = arrayLength(names);
+        // document.write(nameslength);
+
+
+        function arrayLength (array) {
+            let arrayElementLength = [];
+            for (let i = 0; i < array.length; i++) {
+                arrayElementLength.push(array[i].length);        
+            }
+            return arrayElementLength;
+        }
+
+        // Design a javascript function that takes an array of floating point number and returns the index of the smallest value of the array
+        // TASK 3
+        // let floatNum = [4.0, 9.0, 3.0, 5.0, 1.0, 7.0, 2.0];
+         function indexOfLeast (array) {
+            let copyArray = array.slice();
+            copyArray.sort();
+            let num = array.indexOf(copyArray[0]);
+            return num;
+         }
+
+         // wrtie a javascript function that accept two array of integers and check if they are equal i.e they have the same elements in the same order
+         // TASK 4
+        //  let list1 = ["tink", "sank", "dul"];
+        //  let list2 = ["tink", "sank", "dunl"];
+
+        //  let check = equalityChecker(list1, list2);
+        //  document.write(check);
+
+         function equalityChecker (arr1, arr2) {
+            if (arr1.length != arr2.length) {
+                return false;
+            } else {
+                for (let i = 0; i < arr1.length; i++) {
+                    let num1 = arr1[i];
+                    let num2 = arr2[i];
+                    if (num1 != num2) {
+                        return false;
+                    }
+                }
+            }
+            return true;
+         }
+    </script>
+</body>
+</html>

@@ -1,22 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Function task</title>
 </head>
+
 <body>
     <h1>Function Task</h1>
+    <h4>Task 1</h4>
+    <p> Given an array containing 7 numbers, {7,13,15,21,30,4,95}, write a function that takes as argument an array
+        containing this 7 numbers, and returns the even number in the array doubled as an updated array</p>
+    <h6>Test case</h6>
+    <p>{7,13,15,21,30,4,95}</p>
+    <p>Result</p>
+    <p id="t1"></p>
+
+    <h4>Task 2</h4>
+    <p>Create a javascript function that accepts an array of strings and return a new array containing the length of
+        each strings inthe input array</p>
+    <h6>Test case</h6>
+    <p>const testArray4 = ["apple", "banana", "cherry", "date"]; Expected result: [5, 6, 6, 4] <br> const testArray5 =
+        ["one", "two", "three", "four", "five"]; Expected result: [3, 3, 5, 4, 4]<br> const testArray6 = []; Edge case:
+        Empty array, Expected result: []</p>
+    <p>Result</p>
+    <p id="t2"></p>
+
+    <h4>Task 3</h4>
+    <p>Design a javascript function that takes an array of floating point number and returns the index of the smallest
+        value of the array</p>
+    <h6>Test Case</h6>
+    <p> const testArray7 = [3.14, 2.71, 1.618, 1.0]; <br>Expected result: 3 (index of 1.0) <br>const testArray8 = [10.5,
+        20.2, 5.7, 30.1];<br>Expected result: 2 (index of 5.7)<br>const testArray9 = [-1.5, -2.0, -0.5,
+        -0.2];<br>Expected result: 1 (index of -2.0)</p>
+    <p>Result</p>
+    <p id="t3"></p>
+
+    <h4>Task 4</h4>
+    <p>wrtie a javascript function that accept two array of integers and check if they are equal i.e they have the same
+        elements in the same order</p>
+    <h6>Test Case</h6>
+    <p>const testArray10 = [1, 2, 3, 4, 5];<br>
+        const testArray11 = [1, 2, 3, 4, 5]; // Expected result: true (arrays are equal) <br>
+        const testArray12 = [1, 2, 3, 4, 5];<br>
+        const testArray13 = [1, 2, 3, 4, 6]; // Expected result: false (arrays are not equal)<br>
+        const testArray14 = [];<br>
+        const testArray15 = []; // Edge case: Both empty arrays, Expected result: true (arrays are equal)<br>
+        const testArray16 = [1, 2, 3];<br>
+        const testArray17 = [1, 2, 3, 4]; // Expected result: false (arrays are not equal)</p>
+    <p>Result</p>
+    <p id="t4"></p>
+
+    <h4>Task 5</h4>
+    <h6>Test Case</h6>
+    <p>const testArray2 = [1, 2, 3, 4, 5]; // Expected result: 15<br> const testArray3 = [10, -5, 7, 2, 1]; // Expected result: 15 <br> const testArray4 = []; // Edge case: Empty array, Expected result: 0</p>
+    <p>Result</p>
+    <p id="t5"></p>
 
     <script>
-        // Given an array containing 7 numbers, {7,13,15,21,30,4,95}, write a function that takes as argument an array containing this 7 numbers, and returns the even number in the array doubled as an updated array
+        let t1 = document.getElementById("t1");
+        let testArray1 = [7, 13, 15, 21, 30, 4, 95];
+        let test1 = doubleEven(testArray1);
+        t1.innerHTML = test1;
 
-        // TASK 1
-        // let numArray = [7,13,15,21,30,4,95];
-        // doubleEven(numArray);
-        // console.log(numArray);
-
-        function doubleEven (array) {
+        function doubleEven(array) {
             for (let i = 0; i < array.length; i++) {
                 let num = array[i];
                 if (num % 2 == 0) {
@@ -24,42 +72,67 @@
                 }
                 array[i] = num;
             }
+            return array;
         }
 
-        // Create a javascript function that accepts an array of strings and return a new array containing the length of each strings inthe input array
-        // TASK 2
-        // let names = ["Timothy", "Toluwalola", "Grace", "Boluwatife", "Adetunji", "Onyinye", "Samuel"];
-        // let nameslength = arrayLength(names);
-        // document.write(nameslength);
+        let t2 = document.getElementById("t2");
+        let testArray5 = ["apple", "banana", "cherry", "date"];
+        let test5 = arrayLength(testArray5);
+        const testArray6 = ["one", "two", "three", "four", "five"];
+        let test6 = arrayLength(testArray6);
+        const testArray7 = [];
+        let test7 = arrayLength(testArray7);
+        t2.innerHTML = (`Test case 4 is: ${test5}<br> Test case 5 is: ${test6}<br>Test case 6 is: ${test7}`)
 
 
-        function arrayLength (array) {
+        function arrayLength(array) {
+            if (array.length == 0) {
+                return 0;
+            }
             let arrayElementLength = [];
             for (let i = 0; i < array.length; i++) {
-                arrayElementLength.push(array[i].length);        
+                arrayElementLength.push(array[i].length);
             }
             return arrayElementLength;
         }
 
-        // Design a javascript function that takes an array of floating point number and returns the index of the smallest value of the array
-        // TASK 3
-        // let floatNum = [4.0, 9.0, 3.0, 5.0, 1.0, 7.0, 2.0];
-         function indexOfLeast (array) {
-            let copyArray = array.slice();
-            copyArray.sort();
-            let num = array.indexOf(copyArray[0]);
-            return num;
-         }
+        let t3 = document.getElementById("t3");
+        const testArray8 = [3.14, 2.71, 1.618, 1.0];
+        let test8 = indexOfLeast(testArray8);
+        const testArray9 = [10.5, 20.2, 5.7, 30.1];
+        let test9 = indexOfLeast(testArray9);
+        const testArray10 = [-1.5, -2.0, -0.5, -0.2];
+        let test10 = indexOfLeast(testArray10);
+        t3.innerHTML = (`${test8} (indexx of )<br> ${test9} (index of )<br> ${test10} (index of )`)
 
-         // wrtie a javascript function that accept two array of integers and check if they are equal i.e they have the same elements in the same order
-         // TASK 4
-        //  let list1 = ["tink", "sank", "dul"];
-        //  let list2 = ["tink", "sank", "dunl"];
+        function indexOfLeast(array) {
+            let num = array[0];
+            for (let i = 1; i < array.length; i++) {
+                let num2 = array[i];
+                if ( num > num2) {
+                    num = num2
+                }
+            }
+            let num3 = array.indexOf(num)
+            return num3;
+        }
 
-        //  let check = equalityChecker(list1, list2);
-        //  document.write(check);
+        t4 = document.getElementById("t4")
+        const testArray11 = [1, 2, 3, 4, 5];
+        const testArray12 = [1, 2, 3, 4, 5];
+        let test11 = equalityChecker(testArray11, testArray12);
+        const testArray13 = [1, 2, 3, 4, 5];
+        const testArray14 = [1, 2, 3, 4, 6];
+        let test12 = equalityChecker(testArray13, testArray14);
+        const testArray15 = [];
+        const testArray16 = [];
+        let test13 = equalityChecker(testArray15, testArray16);
+        const testArray17 = [1, 2, 3];
+        const testArray18 = [1, 2, 3, 4];
+        let test14 = equalityChecker(testArray17, testArray18);
+        t4.innerHTML = (`testArray 11 and 12 equality is: ${test11}<br> testArray 13 and 14 equality is: ${test12}<br> testArray 15 and 16 equality is: ${test13}<br> testArray 17 and 18 equality is: ${test14}`)
 
-         function equalityChecker (arr1, arr2) {
+        function equalityChecker(arr1, arr2) {
             if (arr1.length != arr2.length) {
                 return false;
             } else {
@@ -72,7 +145,28 @@
                 }
             }
             return true;
-         }
+        }
+
+
+        let t5 = document.getElementById("t5");
+        const testArray2 = [1, 2, 3, 4, 5]; 
+        let testA = sumEven(testArray2);
+        const testArray3 = [10, -5, 7, 2, 1];
+        let testB = sumEven(testArray3)
+        const testArray4 = [];
+        let testC = sumEven(testArray4);
+        t5.innerHTML = (`Sum of testArray2 is ${testA}<br> Sum of testArray3 is ${testB}<br> Sum of testArray4 is ${testC}`)
+
+        function sumEven(array) {
+            let sum = 0;
+            for (let i = 0; i < array.length; i++) {
+                let num = array[i];
+                array[i] = num;
+                sum = sum + array[i];
+            }
+            return sum;
+        }
     </script>
 </body>
+
 </html>
